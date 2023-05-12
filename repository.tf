@@ -3,7 +3,7 @@ data "github_organization" "organization" {
 }
 
 resource "github_repository" "repository" {
-  name                   = "${var.service}-infrastructure"
+  name                   = var.github_repository
   description            = "This is an infrastructure repository, it host the necessary github, terraform and aws configurations"
   visibility             = "public"
   auto_init              = true

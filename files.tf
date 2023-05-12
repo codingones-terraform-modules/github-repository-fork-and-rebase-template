@@ -1,9 +1,9 @@
-resource "github_repository_file" "auto_fork_and_rebase_workflow" {
+resource "github_repository_file" "auto_fork_and_merge_templates_workflow" {
   repository          = github_repository.repository.name
   branch              = github_branch_default.main.branch
-  file                = ".github/workflows/auto-fork-and-rebase-template.yml"
+  file                = ".github/workflows/auto-merge-templates.yml"
   content             = module.workflow_template.rendered
-  commit_message      = "feat: adding auto-fork-and-rebase-template"
+  commit_message      = "feat: adding auto-merge-templates"
   commit_author       = var.commit_author
   commit_email        = var.commit_email
   overwrite_on_create = true
@@ -15,8 +15,9 @@ resource "github_repository_file" "auto_fork_and_rebase_workflow" {
 
 module "workflow_template" {
   source       = "github.com/codingones-terraform-modules/terraform-remote-template-renderer"
-  template_url = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/auto-fork-and-rebase-template.yml"
+  template_url = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/auto-merge-templates.yml"
   template_variables = {
-    TEMPLATE_REPOSITORY = var.template_repository
+    TEMPLATE_REPOSITORY_1 = var.template_repositories[0]
+    TEMPLATE_REPOSITORY_2 = var.template_repositories[1]
   }
 }

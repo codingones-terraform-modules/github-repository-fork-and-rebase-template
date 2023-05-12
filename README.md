@@ -1,8 +1,10 @@
-# Github repository fork and rebase template
+# GitHub repository merge templates
 
 ## About
 
-A module that fork a template repository and commit it as a repository commit
+A module that merge two repositories into ones.  
+For sync purposes the later repository has LESS priority meaning that files with the same name will NOT be replaced.
+Put FIRST the fork you want as upstream.
 
 ## TOC
 

@@ -34,14 +34,15 @@ variable "commit_email" {
   default     = false
 }
 
-variable "template_repository" {
-  description = "The repository which host the template to fork / sync"
+variable "template_repositories" {
+  type        = list(string)
+  description = "The repositories which host the template to fork / sync"
   nullable    = false
-  default     = false
+  default     = []
 }
 
 variable "github_repository_topics" {
-  type        = set(string)
+  type        = list(string)
   description = "The topics present on the repository"
   nullable    = true
   default     = []
