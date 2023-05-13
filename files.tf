@@ -1,6 +1,6 @@
 resource "github_repository_file" "auto_fork_and_merge_templates_workflow" {
-  repository          = github_repository.repository.name
-  branch              = github_branch_default.main.branch
+  repository          = module.repository.repository_name
+  branch              = module.repository.default_branch_name
   file                = ".github/workflows/auto-merge-templates.yml"
   content             = module.workflow_template.rendered
   commit_message      = "feat: adding auto-merge-templates"
