@@ -47,3 +47,10 @@ variable "github_repository_topics" {
   nullable    = true
   default     = []
 }
+
+variable "allow_push_to_default_branch" {
+  type        = bool
+  description = "Allows to push directly on default branch, if false a PR is mandatory"
+  nullable    = true
+  default     = false
+}
