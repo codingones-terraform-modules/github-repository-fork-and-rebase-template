@@ -4,9 +4,8 @@ module "repository" {
   github_organization           = "codingones-github-templates"
   github_repository             = var.github_repository
   github_repository_topics      = var.github_repository_topics
-  allow_push_to_default_branch  = true
   github_repository_description = "This is a module repository"
-  allow_push_to_default_branch = var.allow_push_to_default_branch
+  allow_force_pushes_to_default_branch  = var.allow_force_pushes_to_default_branch
 
   providers = {
     github = github
