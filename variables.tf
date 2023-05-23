@@ -41,6 +41,13 @@ variable "template_repositories" {
   default     = []
 }
 
+variable "templated_files_variables" {
+  type        = map(string)
+  description = "The variables to replace in the merged templates repository files"
+  nullable    = false
+  default     = {}
+}
+
 variable "github_repository_topics" {
   type        = list(string)
   description = "The topics present on the repository"

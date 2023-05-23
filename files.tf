@@ -17,7 +17,8 @@ module "workflow_template" {
   source       = "github.com/codingones-terraform-modules/terraform-remote-template-renderer"
   template_url = "https://raw.githubusercontent.com/codingones-github-templates/files-templates/main/github-actions/auto-merge-templates.yml"
   template_variables = {
-    TEMPLATE_REPOSITORY_1 = var.template_repositories[0]
-    TEMPLATE_REPOSITORY_2 = var.template_repositories[1]
+    __TEMPLATE_REPOSITORY_1     = var.template_repositories[0]
+    __TEMPLATE_REPOSITORY_2     = var.template_repositories[1]
+    __TEMPLATED_FILES_VARIABLES = join(",", formatlist("%s/%s", keys(var.templated_files_variables), values(var.templated_files_variables)))
   }
 }
