@@ -61,3 +61,9 @@ variable "allow_force_pushes_to_default_branch" {
   nullable    = true
   default     = false
 }
+
+variable "template_fork" {
+  type        = bool
+  description = "If true will replace all repository content from template, this is a destructive operation"
+  nullable    = false
+}
