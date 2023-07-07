@@ -6,6 +6,7 @@ module "repository" {
   github_repository_topics             = var.github_repository_topics
   github_repository_description        = "This is a module repository"
   allow_force_pushes_to_default_branch = var.allow_force_pushes_to_default_branch
+  github_repository_visibility         = var.github_repository_visibility
 
   providers = {
     github = github
